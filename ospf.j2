@@ -1,0 +1,9 @@
+router ospf 14
+  router-id {{loopback}}
+{% for net in networks %}
+  network {{net.network}} {{net.wc}} area {{net.area}}
+{% endfor %}
+exit
+int lo1
+  ip ospf network point-to-point
+

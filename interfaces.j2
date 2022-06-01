@@ -1,0 +1,6 @@
+{% for interface in iface_list %}
+interface {{interface.iface}}
+  ip address {{interface.ip}} {{interface.mask}}
+  description {{interface.desc}}
+  no shut
+{% endfor %}

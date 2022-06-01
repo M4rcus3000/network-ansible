@@ -1,0 +1,21 @@
+aaa new-model
+  tacacs server tacgui
+  address ipv4 192.168.229.160
+  key Passw0rd
+exit
+aaa group server tacacs+ ARLAB
+  server name tacgui
+exit
+aaa authentication login CONSOLE local line
+line console 0
+  login authentication CONSOLE
+  privilege level 15
+exit
+aaa authentication login default group ARLAB local
+aaa authentication enable default group ARLAB enable
+aaa authorization exec default group ARLAB local
+aaa authorization commands 1 default group ARLAB local
+aaa authorization commands 15 default group ARLAB local
+aaa accounting commands 1 default start-stop group ARLAB
+aaa accounting commands 15 default start-stop group ARLAB
+ip tacacs source-interface lo 0

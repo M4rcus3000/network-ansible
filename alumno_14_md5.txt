@@ -1,0 +1,17 @@
+---- Playbooks ----
+
+12443395a4a4b9331d9d93839272363a  aaa.j2
+d4c6c946a7c50a3499ab615ccaffceb3  iface.yml
+0b26f00b89c5d8eda0b14966efe2a2ce  interfaces.j2
+d0509ba7ce16fe77fcc07cb605a94a10  ospf.j2
+
+---- host_vars ----
+
+f8016964ab2801f90f8a6ac276ff8104  rtr1.yml
+c55d08467db13214ea2a7a0bc7ea9959  rtr2.yml
+9fd26a1c6527386a3574a31b02f8606a  rtr3.yml
+
+---- ansible-files ----
+
+7294f3fbf6bc252ab809fcbf7fea47d7  hosts
+e8db9f67ba07cd1b1acfc53301230467  ansible.cfg

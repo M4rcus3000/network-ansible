@@ -1,0 +1,13 @@
+---
+iface_list:
+ - { iface: "Ethernet1/0", ip: "172.22.14.1", mask: "255.255.255.248", desc: "To rtr2", duplex: "full" }
+ - { iface: "Ethernet1/1", ip: "172.22.14.9", mask: "255.255.255.248", desc: "To rtr3", duplex: "full" }
+ - { iface: "Loopback0", ip: "14.14.14.1", mask: "255.255.255.255", desc: "Local network", duplex: "full" }
+ - { iface: "Loopback1", ip: "10.14.1.1", mask: "255.255.255.0", desc: "Local network", duplex: "full" }
+networks:
+ - { network: "172.22.14.0", wc: "0.0.0.7", area: "0" }
+ - { network: "172.22.14.8", wc: "0.0.0.7", area: "0" }
+ - { network: "14.14.14.1", wc: "0.0.0.0", area: "0" }
+ - { network: "10.14.1.1", wc: "0.0.0.255", area: "0" }
+ - { network: "192.168.229.0", wc: "0.0.0.255", area: "0" }
+loopback: 14.14.14.1

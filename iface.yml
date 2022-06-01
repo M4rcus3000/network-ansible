@@ -1,0 +1,46 @@
+---
+- name: configure network devices
+  hosts: ARLAB
+  gather_facts: false
+
+  tasks:
+    - name: configure interfaces
+      cli_config:
+        config: "{{ lookup('template', 'interfaces.j2') }}"
+         
+                    
+    - name: configure ospf
+      cli_config:
+        config: "{{ lookup('template', 'ospf.j2') }}"
+             
+                                       
+    - name: configure banner
+      ios_banner:
+        banner: login
+        text: |
+         Prohibido el acceso no autorizado a los equipos. Toda la actividad de estos equipos esta siendo monitoreada.               
+
+    
+    - name : save config
+      ios_config:
+        save_when: modified
+
+                        
+    - name: configure syslog
+      ios_config:
+        lines:
+         - logging host 192.168.229.161 transport udp
+         - logging source-interface lo0 
+                            
+                         
+    - name: configure snmp
+      ios_config:
+        lines:
+         - snmp-server community ar-ro RO
+
+                    
+    - name : configure aaa
+      cli_config:
+        config: "{{ lookup('template', 'aaa.j2') }}"                 
+                            
+                     
